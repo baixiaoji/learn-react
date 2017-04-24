@@ -11,7 +11,7 @@
   box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
 }
 .UserDialog > nav:first-child{ padding: 1em; margin-left:-2em;}
-.UserDialog > nav:first-child label{
+.UserDialog > nav:first-child lable{
     margin-left:2em;
     cursor:pointer;
 }
