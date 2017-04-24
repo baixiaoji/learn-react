@@ -5,7 +5,11 @@ export default class UserDialog extends Component{
         super(props)
 
         this.state = {
-            selected : "signUp"
+            selected : "signUp",
+            formData: {
+                username: "",
+                password: "",
+            }
         }
     }
 
@@ -13,6 +17,11 @@ export default class UserDialog extends Component{
         this.setState({
             selected: e.target.value
         })
+    }
+    signUp(e){}
+    signIn(e){}
+    changeUserName(e){
+        
     }
     render(){
         let signUpForm = (
