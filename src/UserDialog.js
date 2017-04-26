@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import "./UserDialog.css"
 import {signUp} from "./leanCloud"
 
+
 export default class UserDialog extends Component{
     constructor(props){
         super(props)
