@@ -11,37 +11,44 @@ AV.init({
 export default AV
 
 
-export function signUp(username, password, successFn, errorFn){
-   var user = new AV.User();
-   console.log(user)
-   user.setUsername(username)
+export function signUp(username, password, successFn, errorFn) {
+  var user = new AV.User();
+  console.log(user)
+  user.setUsername(username)
 
-   user.setPassword(password)
+  user.setPassword(password)
 
-   user.signUp().then(function(loginedUser){
-      let user = getUserFromAVUser(loginedUser)
+  user.signUp().then(function (loginedUser) {
+    let user = getUserFromAVUser(loginedUser)
 
-      successFn.call(null, user)
-   },function(error){
-     errorFn.call(null,error)
-   })
+    successFn.call(null, user)
+  }, function (error) {
+    errorFn.call(null, error)
+  })
 }
-
-export function getCurrentUser(){
+export function signIn(username, password, successFn, errorFn) {
+  AV.User.logIn(username, password).then(function (loginedUser) {
+    let user = getUserFromAVUser(loginedUser)
+    successFn.call(null, user)
+  }, function (error) {
+    errorFn.call(null, error)
+  })
+}
+export function getCurrentUser() {
   let user = AV.User.current()
 
-  if(user){
+  if (user) {
     return getUserFromAVUser(user)
-  }else{
+  } else {
     return null
   }
 }
 
-export function signOut(){
+export function signOut() {
   AV.User.logOut()
   return undefined
 }
-function getUserFromAVUser(AVUser){
+function getUserFromAVUser(AVUser) {
   return {
     id: AVUser.id,
     ...AVUser.attributes
