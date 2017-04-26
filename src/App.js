@@ -33,14 +33,20 @@ class App extends Component {
     // console.log(todos)
     return (
       <div className="App">
-        <h1>{this.state.user.username || "我"}的代办
+        {this.state.user.id ? 
+          <h1>{this.state.user.username || "我"}的代办
           {this.state.user.id? <button onClick={this.signOut.bind(this)}>登出</button>: null}
         </h1>
-        <div className="inputWrapper">
-          <TodoInput content={this.state.newTodo} 
-          onChange={this.changeTitle.bind(this)}
-          onSubmit={this.addTodo.bind(this)} />
-        </div>
+         :null
+        }
+        {this.state.user.id ? 
+          <div className="inputWrapper">
+            <TodoInput content={this.state.newTodo} 
+            onChange={this.changeTitle.bind(this)}
+            onSubmit={this.addTodo.bind(this)} />
+          </div>
+          :null
+        }
         <ol className="todoList">
           {todos}
         </ol>
