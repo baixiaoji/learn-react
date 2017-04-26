@@ -61,7 +61,7 @@ class App extends Component {
     this.setState(stateCopy)
 
   }
-  onSignUp(user){
+  onSignUpOrSignIn(user){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
 
     stateCopy.user = user
@@ -72,11 +72,7 @@ class App extends Component {
     todo.deleted = true
     this.setState(this.state)
   }
-  onSignIn(){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
-    stateCopy.user = user
-    this.setState(stateCopy)
-  }
+ 
   componentDidUpdate(){
 
   }
