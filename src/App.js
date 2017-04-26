@@ -6,6 +6,7 @@ import TodoInput from "./TodoInput"
 import TodoItem from "./TodoItem"
 import UserDialog from "./UserDialog"
 import {getCurrentUser,signOut} from "./leanCloud"
+import deepCopy from "./deepCopy"
 
 class App extends Component {
   constructor(props){
@@ -60,7 +61,7 @@ class App extends Component {
   }
   signOut(){
     signOut()
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = deepCopy(this.state)
 
     stateCopy.user = {}
 
@@ -68,7 +69,7 @@ class App extends Component {
 
   }
   onSignUpOrSignIn(user){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = deepCopy(this.state)
 
     stateCopy.user = user
 

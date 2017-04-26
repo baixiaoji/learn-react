@@ -17,7 +17,23 @@ body {
   /*box-shadow: 0 0 1em hsla(0,0%,0%,0.15)*/
 }
 .App h1{
-  text-align: center;
+  /*text-align: center;*/
+  display: flex;
+  justify-content: center;
+}
+.App h1 button{
+  border:0;
+  border-radius:3px;
+  outline: none;
+  cursor:pointer;
+  background: #d04040;
+  color:#fff;
+  padding:.5em .4em;
+  margin-left: .8em;
+  transition:all .5s ease;
+}
+.App h1 button:hover{
+  background: #952f2f;
 }
 .App > .todoList > li{
   line-height: 2em;
