@@ -13,7 +13,7 @@ export default AV
 
 export function signUp(username, password, successFn, errorFn) {
   var user = new AV.User();
-  console.log(user)
+  // console.log(user)
   user.setUsername(username)
 
   user.setPassword(password)
