@@ -10,6 +10,7 @@ export default class UserDialog extends Component{
         this.state = {
             selected : "signUp",
             formData: {
+                email:'',
                 username: "",
                 password: "",
             }
@@ -24,7 +25,7 @@ export default class UserDialog extends Component{
     signUp(e){
         e.preventDefault()
 
-        let {username, password} = this.state.formData
+        let {email,username, password} = this.state.formData
 
         let success = (user) => {
             this.props.onSignUp.call(null,user)
@@ -48,7 +49,7 @@ export default class UserDialog extends Component{
             }
         }
 
-        signUp(username,password,success,error)
+        signUp(email,username,password,success,error)
     }
     signIn(e){
         e.preventDefault()
@@ -68,7 +69,7 @@ export default class UserDialog extends Component{
                     alert("请求超时")
                     break
                 case 126:
-                    alert("")
+                    alert("无效用户")
                     break
                 case 210:
                     alert("用户名与密码不匹配")
@@ -97,22 +98,27 @@ export default class UserDialog extends Component{
     render(){
         let signUpForm = (
             <form className="signUP" onSubmit={this.signUp.bind(this)}>
-            {/*注册*/}
-            <div className="row">
-                <label>用户名</label>
-                <input type="text"  value={this.state.formData.username} 
-                onChange={this.changeFormDate.bind(this,"username")}/>
-                {/* bind 不仅可以绑定 this，还可以绑定第一个参数 */}
-            </div>
-            <div className="row">
-                <label>密码</label>
-                <input type="password" value={this.state.formData.password} 
-                onChange={this.changeFormDate.bind(this,"password")}/>
-            </div>
-            <div className="row actions">
-                <button type="submit">注册</button>
-            </div>
-        </form>
+                    {/*注册*/}
+                    <div className="row">
+                        <label>邮箱</label>
+                        <input type="text" value={this.state.formData.email}
+                            onChange={this.changeFormDate.bind(this,"email")}/>
+                    </div>
+                    <div className="row">
+                        <label>用户名</label>
+                        <input type="text"  value={this.state.formData.username} 
+                        onChange={this.changeFormDate.bind(this,"username")}/>
+                        {/* bind 不仅可以绑定 this，还可以绑定第一个参数 */}
+                    </div>
+                    <div className="row">
+                        <label>密码</label>
+                        <input type="password" value={this.state.formData.password} 
+                        onChange={this.changeFormDate.bind(this,"password")}/>
+                    </div>
+                    <div className="row actions">
+                        <button type="submit">注册</button>
+                    </div>
+          </form>
         )
 
         let signInForm = (
@@ -130,6 +136,7 @@ export default class UserDialog extends Component{
             </div>
             <div className="row actions">
                 <button type="submit">登录</button>
+                <a href="javascript:;">忘记密码？</a>
             </div>
         </form>
         )
