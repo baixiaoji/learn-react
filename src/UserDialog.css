@@ -30,6 +30,9 @@
 .UserDialog > .panes { 
   padding: 0 1em 1em; 
 }
+.UserDialog .forgotPassword > h3{
+  
+}
 
 .UserDialog form>.row{ 
   display: flex; 
