@@ -11,7 +11,7 @@ AV.init({
 export default AV
 
 
-export function signUp(email,username, password, successFn, errorFn) {
+export function signUp(email, username, password, successFn, errorFn) {
   var user = new AV.User();
   // console.log(user)
   user.setUsername(username)
@@ -51,11 +51,11 @@ export function signOut() {
   return undefined
 }
 
-export function sendPasswordResetEmail(email,successFn,errorFn){
-  AV.User.requestPasswordReset(email).then(function(success){
-      success.call()
-  },function(error){
-    console.dir(error)
+export function sendPasswordResetEmail(email, successFn, errorFn) {
+  AV.User.requestPasswordReset(email).then(function (success) {
+    success.call()
+  }, function (error) {
+    errorFn.call(null, error)
   })
 
 }
