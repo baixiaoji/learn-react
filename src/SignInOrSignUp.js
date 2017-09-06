@@ -3,22 +3,22 @@ import SignUpForm from './SignUpForm'
 import SignInForm from './SignInForm'
 
 export default class SignInOrSignUp extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             selected: "signUp"
         }
     }
 
-    switch(e){
+    switch(e) {
         this.setState({
-            selected:e.target.value
+            selected: e.target.value
         })
     }
 
-    render(){
+    render() {
         return (
-             <div className="signInOrSignUp">
+            <div className="signInOrSignUp">
                 <nav>
                     <label>
                         <input type="radio" value="signUp"
@@ -34,16 +34,16 @@ export default class SignInOrSignUp extends Component {
                     </label>
                 </nav>
                 <div className="panes">
-                    {this.state.selected === 'signUp' ? 
-                    <SignUpForm formData={this.props.formData}  
+                    {this.state.selected === 'signUp' ?
+                        <SignUpForm formData={this.props.formData}
                             onSubmit={this.props.onSignUp}
-                            onChange={this.props.onChange}/> : null}
-                    {this.state.selected === 'signIn' ? 
-                    <SignInForm 
-                        formData={this.props.formData} 
-                        onSubmit={this.props.onSignIn}
-                        onchange={this.props.onChange} 
-                        onForgotPassword={this.props.onForgotPassword}/> : null}
+                            onChange={this.props.onChange} /> : null}
+                    {this.state.selected === 'signIn' ?
+                        <SignInForm
+                            formData={this.props.formData}
+                            onSubmit={this.props.onSignIn}
+                            onchange={this.props.onChange}
+                            onForgotPassword={this.props.onForgotPassword} /> : null}
                 </div>
             </div>
         )
